@@ -1,35 +1,35 @@
 class Solver
-    def factorial(n)
-        if n>0
-            fact = 1
-            for a in 1..n
-                fact *= a
-            end
-            fact
-        elsif n == 0
-            1
-        else
-            'This is an exception'
-        end
+  def factorial(num)
+    if num.positive?
+      fact = 1
+      (1..num).each do |a|
+        fact *= a
+      end
+      fact
+    elsif num.zero?
+      1
+    else
+      'This is an exception'
     end
+  end
 
-    def reverse(string)
-        string.reverse
-    end
+  def reverse(string)
+    string.reverse
+  end
 
-    def fizzbuzz(n)
-        string = ''
-        for i in 1..n
-            if i%3==0 && i%5==0
-                string += 'fizbuzz'
-            elsif i%3==0
-                string += 'fizz'
-            elsif i%5==0
-                string += 'buzz'
-            else
-                string += i.to_s
-            end
-        end
-        string
+  def fizzbuzz(num)
+    string = ''
+    (1..num).each do |i|
+      string += if (i % 3).zero? && (i % 5).zero?
+                  'fizbuzz'
+                elsif (i % 3).zero?
+                  'fizz'
+                elsif (i % 5).zero?
+                  'buzz'
+                else
+                  i.to_s
+                end
     end
+    string
+  end
 end
